@@ -1,22 +1,27 @@
-def get_book_text(filepath):
-    with open(filepath) as f:
+from stats import *
+
+def analyze_book(bookFilePath):
+    booktext = ""
+
+    print(f"Analyzing book found at {bookFilePath}...")
+    booktext = get_book_text(bookFilePath)
     
-        file_contents = f.read()
+    print("----------- Word Count ----------")
+    words = get_num_words(booktext)
+    print(f"Found {words} total words")
 
-        #print (file_contents)
+    print("--------- Character Count -------")
+    print_char_count(booktext)
 
-    wordcount = 0
-    for w in file_contents.split():
-        wordcount += 1
-
-    print (f"{wordcount} words found in the document")
-    return
+    print("============= END ===============")
 
 
 
 def main():
-    get_book_text("books/frankenstein.txt")
+    print("============ BOOKBOT ============")
+    analyze_book("books/frankenstein.txt")
 
+    
 
 main()
     
